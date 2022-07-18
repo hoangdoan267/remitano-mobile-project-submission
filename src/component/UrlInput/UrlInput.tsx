@@ -41,6 +41,8 @@ export default function UrlInput(props) {
         returnKeyType="go"
         ref={inputRef}
         onFocus={() => setIsFocus(true)}
+        autoCapitalize={'none'}
+        selectTextOnFocus={true}
         onBlur={() => {
           if (value === '') {
             setValue(source);
