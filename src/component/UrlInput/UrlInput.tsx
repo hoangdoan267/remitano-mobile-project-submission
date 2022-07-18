@@ -33,6 +33,7 @@ export default function UrlInput(props) {
   return (
     <>
       <TextInput
+        spellCheck={false}
         style={styles.inputContainer}
         value={value}
         onChangeText={text => setValue(text)}

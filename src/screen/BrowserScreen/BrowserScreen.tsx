@@ -28,6 +28,10 @@ export default function BrowserScreen() {
     return () => {};
   }, [progress]);
 
+  const onSubmit = (url: string) => {
+    setsource(url);
+  };
+
   return (
     <View style={{flex: 1}}>
       <BrowserToolbar
@@ -35,7 +39,7 @@ export default function BrowserScreen() {
         canGoForward={canGoForward}
         ref={webRef}
         source={source}
-        onSubmit={setsource}
+        onSubmit={onSubmit}
       />
       {progress > 0 && (
         <ProgressBar

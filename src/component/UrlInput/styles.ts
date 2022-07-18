@@ -8,6 +8,7 @@ export const styles = StyleSheet.create({
     color: '#808589',
     borderRadius: 20,
     backgroundColor: '#e8e9ed',
+    paddingRight: 24,
   },
   closeButton: {
     backgroundColor: 'rgba(128, 133, 137, 0.3)',

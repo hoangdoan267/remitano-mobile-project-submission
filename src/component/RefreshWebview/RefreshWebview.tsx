@@ -1,11 +1,17 @@
 import React, {useState, memo} from 'react';
 import WebView from 'react-native-webview';
-import {RefreshControl, Dimensions, StyleSheet, View} from 'react-native';
+import {
+  RefreshControl,
+  Dimensions,
+  StyleSheet,
+  View,
+  Text,
+  Alert,
+} from 'react-native';
 import {ScrollView} from 'react-native-gesture-handler';
-
-const styles = StyleSheet.create({
-  view: {flex: 1, height: '100%'},
-});
+import ErrorPage from '../ErrorPage/ErrorPage';
+import * as Progress from 'react-native-progress';
+import {styles} from './styles';
 
 const RefreshWebView = React.forwardRef((props: any, ref: any) => {
   const {source, setCanGoForward, setCanGoBack, setProgress} = props;
@@ -19,7 +25,7 @@ const RefreshWebView = React.forwardRef((props: any, ref: any) => {
   };
 
   return (
-    <View style={{flex: 1}}>
+    <View style={styles.webviewContainer}>
       <ScrollView
         onLayout={e => setHeight(e.nativeEvent.layout.height)}
         refreshControl={
@@ -46,6 +52,15 @@ const RefreshWebView = React.forwardRef((props: any, ref: any) => {
           }}
           onLoadProgress={({nativeEvent}) => {
             setProgress(nativeEvent.progress);
+          }}
+          renderError={(errorName, errorCode, errorDescription) => {
+            return (
+              <ErrorPage
+                errorName={errorName}
+                errorCode={errorCode}
+                errorDescription={errorDescription}
+              />
+            );
           }}
         />
       </ScrollView>
