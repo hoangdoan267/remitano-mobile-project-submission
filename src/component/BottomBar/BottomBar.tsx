@@ -26,7 +26,7 @@ const BottomBar = React.forwardRef((props: any, ref) => {
       style={[
         styles.toolbarContainer,
         {
-          paddingBottom: insets.bottom + 8,
+          paddingBottom: insets.bottom + 12,
         },
       ]}>
       <TouchableOpacity
